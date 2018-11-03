@@ -3,14 +3,16 @@
 // Grab element data from here
 var elementURL = "https://raw.githubusercontent.com/andrejewski/periodic-table/master/data.csv";
 
-$(document).ready(function() {
-    $.ajax({
-        type: "GET",
-        url: elementURL,
-        dataType: "text",
-        success: function(data) {processData(data);}
-     });
-});
+function get(url, callback) {
+    Http = new XMLHttpRequest();
+    Http.open("GET", url);
+    Http.send();
+    Http.onreadystatechange = function(e) {
+        callback(Http.responseText);
+    }
+}
+
+get(elementURL, processData);
 
 function processData(data) {
 	var rows = data.split("\n");
