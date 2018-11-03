@@ -31,7 +31,7 @@ function processData(data) {
         if (isNaN(mass)) mass = -1;
         window[symbol] = {
             "name" : name,
-            "mass" : mass
+            "mm" : mass
         };
     }
 }
