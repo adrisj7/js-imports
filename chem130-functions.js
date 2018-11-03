@@ -12,10 +12,11 @@ $(document).ready(function() {
 });
 
 function processData(data) {
+    console.log("Data: " + data);
     var rows = data.split("\n");
     // Skip the top row which has column descriptions
-    for(var i = 1; i < data.length; i++) {
-        var cols = rows[i].split(" ");
+    for(var i = 1; i < rows.length; i++) {
+        var cols = rows[i].split(",");
         var symbol = cols[1];
         var name = cols[2];
         var mass = parseFloat(cols[3]);
